@@ -1,0 +1,24 @@
+function solucao(min, km) {
+  const precoPorMinuto = 50;
+  const precoPorKmAte10 = 70;
+  const precoPorKmApos10 = 50;
+  const precoPorMinAte20 = 50;
+  const precoPorMinApos20 = 30;
+  const kmApos10 = Math.max(0, km - 10);
+  const minApos20 = Math.max(0, min - 20);
+
+  let valorViagem = 0;
+
+  valorViagem += min <= 20 ? min * precoPorMinuto : 20 * precoPorMinAte20 + minApos20 * precoPorMinApos20;
+  valorViagem += km <= 10 ? km * precoPorKmAte10 : 10 * precoPorKmAte10 + kmApos10 * precoPorKmApos10;
+
+   Math.floor(valorViagem);
+   console.log(valorViagem);
+}
+
+function processData(input) {
+    const x = input.split(" ");
+    const min = parseFloat(x[0], 10);
+    const km = parseFloat(x[1], 10);
+    solucao(min, km);
+}
